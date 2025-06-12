@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\About\AboutController;
 use App\Http\Controllers\Slide\SlideController;
+use App\Http\Controllers\Team\TeamController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,4 +37,11 @@ Route::controller(SlideController::class)->group(function () {
     Route::get('/getAllSlideData', 'getAllSlideData');
     Route::get('/getOneSilde', 'getOneSilde');
     Route::get('/getSingleSlide/{id}', 'getSingleSlide');
+});
+Route::controller(TeamController::class)->group(function () {
+    Route::get('/getAllTeamData', 'getAllTeamData');
+    Route::post('/createTeam', 'storeTeam');
+    Route::post('/updateTeam/{id}', 'updateTeam');
+    Route::delete('/deleteTeam/{id}', 'deleteTeam');
+    Route::get('/getSingleTeamData/{id}', 'getSingleTeamData');
 });

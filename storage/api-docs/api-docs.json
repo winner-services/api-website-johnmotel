@@ -651,6 +651,288 @@
                     }
                 ]
             }
+        },
+        "/api/getAllTeamData": {
+            "get": {
+                "tags": [
+                    "Team"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getAllTeamData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createTeam": {
+            "post": {
+                "tags": [
+                    "Team"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "storeTeam",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "title_en",
+                                    "title_fr",
+                                    "facebook",
+                                    "email",
+                                    "twitter",
+                                    "linkedin",
+                                    "image"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "facebook": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "twitter": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "linkedin": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "ysteme"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateTeam/{id}": {
+            "put": {
+                "tags": [
+                    "Team"
+                ],
+                "summary": "Update",
+                "description": "Modification",
+                "operationId": "updateTeam",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Modifier",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "title_en",
+                                    "title_fr"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "facebook": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "twitter": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "linkedin": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "404": {
+                        "description": "Team member not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/deleteTeam/{id}": {
+            "delete": {
+                "tags": [
+                    "Team"
+                ],
+                "summary": "Delete",
+                "description": "Suppression",
+                "operationId": "deleteTeam",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Team member deleted successfully"
+                    },
+                    "404": {
+                        "description": "Team member not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/getSingleTeamData/{id}": {
+            "get": {
+                "tags": [
+                    "Team"
+                ],
+                "summary": "Afficher",
+                "description": "Afficher ",
+                "operationId": "getSingleTeamData",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de l'approv",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "succès",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "succès"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -672,6 +954,10 @@
         {
             "name": "Slide",
             "description": "Slide"
+        },
+        {
+            "name": "Team",
+            "description": "Team"
         }
     ]
 }
