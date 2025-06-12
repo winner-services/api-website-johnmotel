@@ -108,7 +108,7 @@ class TeamController extends Controller
         return response()->json($result);
     }
     /**
-     * @OA\Put(
+     * @OA\Post(
      * path="/api/updateTeam/{id}",
      * summary="Update",
      * description="Modification",

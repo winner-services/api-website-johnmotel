@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\About\AboutController;
+use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Slide\SlideController;
 use App\Http\Controllers\Team\TeamController;
 use Illuminate\Http\Request;
@@ -44,4 +45,12 @@ Route::controller(TeamController::class)->group(function () {
     Route::post('/updateTeam/{id}', 'updateTeam');
     Route::delete('/deleteTeam/{id}', 'deleteTeam');
     Route::get('/getSingleTeamData/{id}', 'getSingleTeamData');
+});
+
+Route::controller(ServiceController::class)->group(function () {
+    Route::get('getServiceData', 'getServiceData');
+    Route::get('getSingleService/{id}', 'getSingleService');
+    Route::post('createService', 'createService');
+    Route::post('updateService', 'updateService');
+    Route::delete('deleteService/{id}', 'deleteService');
 });

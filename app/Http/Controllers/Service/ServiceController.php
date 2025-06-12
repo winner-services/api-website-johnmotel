@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Slide;
+namespace App\Http\Controllers\Service;
 
 use App\Http\Controllers\Controller;
-use App\Models\Slide;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-class SlideController extends Controller
+class ServiceController extends Controller
 {
     /**
      * @OA\Get(
-     *      path="/api/getAllSlideData",
-     *      operationId="getAllSlideData",
-     *      tags={"Slide"},
+     *      path="/api/getServiceData",
+     *      operationId="getServiceData",
+     *      tags={"Service"},
      *      summary="Get",
      *      description="Returns list",
      *      @OA\Response(
@@ -26,37 +26,9 @@ class SlideController extends Controller
      *       ),
      *     )
      */
-    public function getAllSlideData()
+    public function getServiceData()
     {
-        $data = Slide::inRandomOrder()->get();
-        $result = [
-            'message' => "success",
-            'success' => true,
-            'status' => 200,
-            'data' => $data
-        ];
-        return response()->json($result);
-    }
-
-    /**
-     * @OA\Get(
-     *      path="/api/getOneSilde",
-     *      operationId="getOneSilde",
-     *      tags={"Slide"},
-     *      summary="Get",
-     *      description="Returns list",
-     *      @OA\Response(
-     *          response=200,
-     *          description="Successful",
-     * *          @OA\MediaType(
-     *           mediaType="application/json",
-     *      )
-     *       ),
-     *     )
-     */
-    public function getOneSilde()
-    {
-        $data = Slide::inRandomOrder()->take(1)->get();
+        $data = Service::latest()->get();
         $result = [
             'message' => "success",
             'success' => true,
@@ -67,20 +39,21 @@ class SlideController extends Controller
     }
     /**
      * @OA\Post(
-     * path="/api/createSlide",
+     * path="/api/createService",
      * summary="Create",
      * description="Creation",
      * security={{ "bearerAuth":{ }}},
-     * operationId="storeSlide",
-     * tags={"Slide"},
+     * operationId="createService",
+     * tags={"Service"},
      * @OA\RequestBody(
      *    required=true,
      *    description="Enregistrer",
      *    @OA\JsonContent(
-     *       required={"hotel_name","title_en","title_fr","image"},
-     *       @OA\Property(property="hotel_name", type="string", format="text",example="john service"),
-     *       @OA\Property(property="title_en", type="string", format="text",example="winner kambale"),
+     *       required={"title_en","title_fr","description_fr","description_en"},
+     *       @OA\Property(property="title_en", type="string", format="text",example="rdc"),
      *       @OA\Property(property="title_fr", type="string", format="text",example="rdc"),
+     *       @OA\Property(property="description_fr", type="string", format="text",example="winner kambale"),
+     *       @OA\Property(property="description_en", type="string", format="text",example="rdc"),
      *       @OA\Property(property="image", type="string", format="text",example="rdc")
      *    ),
      * ),
@@ -94,12 +67,13 @@ class SlideController extends Controller
      *     )
      * )
      */
-    public function storeSlide(Request $request)
+    public function createService(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'title_en' => 'required',
             'title_fr' => 'required',
-            'hotel_name' => 'required',
+            'description_fr' => 'required',
+            'description_en' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
         if ($validator->fails()) {
@@ -109,11 +83,12 @@ class SlideController extends Controller
             ], 422);
         }
         $file = $request->file('image');
-        $path = $file->store('images/slide', 'public');
-        Slide::create([
-            'hotel_name' => $request->hotel_name,
+        $path = $file->store('images/Service', 'public');
+        Service::create([
             'title_en' => $request->title_en,
             'title_fr' => $request->title_fr,
+            'description_fr' => $request->description_fr,
+            'description_en' => $request->description_en,
             'image' => $path
         ]);
         $result = [
@@ -125,12 +100,12 @@ class SlideController extends Controller
     }
     /**
      * @OA\Post(
-     * path="/api/updateSlide/{id}",
+     * path="/api/updateService/{id}",
      * summary="Update",
      * description="Modification",
      * security={{ "bearerAuth":{ }}},
-     * operationId="updateSlide",
-     * tags={"Slide"},
+     * operationId="updateService",
+     * tags={"Service"},
      * @OA\Parameter(
      *    name="id",
      *    in="path",
@@ -141,8 +116,9 @@ class SlideController extends Controller
      *    required=false,
      *    description="Modifier",
      *    @OA\JsonContent(
-     *       required={"title_en","title_fr","hotel_name"},
-     *       @OA\Property(property="hotel_name", type="string", format="text", example="winner services"),
+     *       required={"title_en","title_fr","description_fr","description_en"},
+     *       @OA\Property(property="description_fr", type="string", format="text", example="winner services"),
+     *       @OA\Property(property="description_en", type="string", format="text", example="winner services"),
      *       @OA\Property(property="title_en", type="string", format="text", example="winner kambale"),
      *       @OA\Property(property="title_fr", type="string", format="text", example="rdc"),
      *       @OA\Property(property="image", type="string", format="text", example="rdc"),
@@ -154,7 +130,7 @@ class SlideController extends Controller
      * ),
      * @OA\Response(
      *    response=404,
-     *    description="Slide not found",
+     *    description="Service not found",
      * ),
      * @OA\Response(
      *    response=422,
@@ -162,19 +138,20 @@ class SlideController extends Controller
      * )
      * )
      */
-    public function updateSlide(Request $request, $id)
+    public function updateService(Request $request, $id)
     {
-        $slide = Slide::find($id);
+        $service = Service::find($id);
 
-        if (!$slide) {
-            return response()->json(['message' => 'Slide not found'], 404);
+        if (!$service) {
+            return response()->json(['message' => 'service not found'], 404);
         }
 
         $validator = Validator::make($request->all(), [
-            'hotel_name' => 'required',
             'title_en' => 'required',
             'title_fr' => 'required',
-            'image' => 'nullable',
+            'description_fr' => 'required',
+            'description_en' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         if ($validator->fails()) {
@@ -185,18 +162,19 @@ class SlideController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            Storage::disk('public')->delete($slide->image);
+            Storage::disk('public')->delete($service->image);
 
             $file = $request->file('image');
-            $path = $file->store('images/slide', 'public');
+            $path = $file->store('images/service', 'public');
         } else {
-            $path = $slide->image;
+            $path = $service->image;
         }
 
-        $slide->update([
-            'hotel_name' => $request->hotel_name,
+        $service->update([
             'title_en' => $request->title_en,
             'title_fr' => $request->title_fr,
+            'description_fr' => $request->description_fr,
+            'description_en' => $request->description_en,
             'image' => $path
         ]);
 
@@ -209,12 +187,12 @@ class SlideController extends Controller
     }
     /**
      * @OA\Delete(
-     * path="/api/deleteSlide/{id}",
+     * path="/api/deleteService/{id}",
      * summary="Delete",
      * description="Suppression",
      * security={{ "bearerAuth":{ }}},
-     * operationId="deleteSlide",
-     * tags={"Slide"},
+     * operationId="deleteService",
+     * tags={"Service"},
      * @OA\Parameter(
      *    name="id",
      *    in="path",
@@ -235,16 +213,16 @@ class SlideController extends Controller
      * )
      * )
      */
-    public function deleteSlide($id)
+    public function deleteService($id)
     {
-        $slide = Slide::find($id);
+        $service = Service::find($id);
 
-        if (!$slide) {
-            return response()->json(['message' => 'Slide not found'], 404);
+        if (!$service) {
+            return response()->json(['message' => 'service not found'], 404);
         }
-        Storage::disk('public')->delete($slide->image);
+        Storage::disk('public')->delete($service->image);
 
-        $slide->delete();
+        $service->delete();
 
         return response()->json([
             'message' => "Slide deleted successfully",
@@ -254,12 +232,12 @@ class SlideController extends Controller
     }
     /**
      * @OA\Get(
-     *     path="/api/getSingleSlide/{id}",
+     *     path="/api/getSingleService/{id}",
      *     summary="Afficher",
      *     description="Afficher ",
      *     security={{"bearerAuth":{}}},
-     *     operationId="getSingleSlide",
-     *     tags={"Slide"},
+     *     operationId="getSingleService",
+     *     tags={"Service"},
      *     @OA\Parameter(
      *         name="id",
      *         in="path",
@@ -284,9 +262,9 @@ class SlideController extends Controller
      *     )
      * )
      */
-    public function getSingleSlide($id)
+    public function getSingleService($id)
     {
-        $data = Slide::find($id);
+        $data = Service::find($id);
         $result = [
             'message' => "success",
             'success' => true,
@@ -296,4 +274,3 @@ class SlideController extends Controller
         return response()->json($result);
     }
 }
-

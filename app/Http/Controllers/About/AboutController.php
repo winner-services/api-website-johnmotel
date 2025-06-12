@@ -137,7 +137,7 @@ class AboutController extends Controller
     }
 
     /**
-     * @OA\Put(
+     * @OA\Post(
      * path="/api/updateAbout/{id}",
      * summary="Update",
      * description="Update existing About entry",
