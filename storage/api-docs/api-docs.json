@@ -395,6 +395,262 @@
                     }
                 ]
             }
+        },
+        "/api/getAllSlideData": {
+            "get": {
+                "tags": [
+                    "Slide"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getAllSlideData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getOneSilde": {
+            "get": {
+                "tags": [
+                    "Slide"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getOneSilde",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createSlide": {
+            "post": {
+                "tags": [
+                    "Slide"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "storeSlide",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "hotel_name",
+                                    "title_en",
+                                    "title_fr",
+                                    "image"
+                                ],
+                                "properties": {
+                                    "hotel_name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "john service"
+                                    },
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "ysteme"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateSlide/{id}": {
+            "put": {
+                "tags": [
+                    "Slide"
+                ],
+                "summary": "Update",
+                "description": "Modification",
+                "operationId": "updateSlide",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Modifier",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title_en",
+                                    "title_fr",
+                                    "hotel_name"
+                                ],
+                                "properties": {
+                                    "hotel_name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner services"
+                                    },
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "404": {
+                        "description": "Slide not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/deleteSlide/{id}": {
+            "delete": {
+                "tags": [
+                    "Slide"
+                ],
+                "summary": "Delete",
+                "description": "Suppression",
+                "operationId": "deleteSlide",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Slide deleted successfully"
+                    },
+                    "404": {
+                        "description": "Slide not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/getSingleSlide/{id}": {
+            "get": {
+                "tags": [
+                    "Slide"
+                ],
+                "summary": "Afficher",
+                "description": "Afficher ",
+                "operationId": "getSingleSlide",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID de l'approv",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "succès",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "succès"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
         }
     },
     "components": {
@@ -412,6 +668,10 @@
         {
             "name": "About",
             "description": "About"
+        },
+        {
+            "name": "Slide",
+            "description": "Slide"
         }
     ]
 }

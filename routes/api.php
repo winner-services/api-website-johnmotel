@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\About\AboutController;
+use App\Http\Controllers\Slide\SlideController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +27,13 @@ Route::controller(AboutController::class)->group(function () {
     Route::post('/createAbout', 'storeAbout');
     Route::post('/updateAbout/{id}', 'updateAbout');
     Route::delete('/deleteAbout/{id}', 'deleteAbout');
+});
+
+Route::controller(SlideController::class)->group(function () {
+    Route::post('/createSlide', 'storeSlide');
+    Route::post('/updateSlide/{id}', 'updateSlide');
+    Route::delete('/deleteSlide/{id}', 'deleteSlide');
+    Route::get('/getAllSlideData', 'getAllSlideData');
+    Route::get('/getOneSilde', 'getOneSilde');
+    Route::get('/getSingleSlide/{id}', 'getSingleSlide');
 });
