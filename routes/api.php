@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\About\AboutController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::controller(AboutController::class)->group(function () {
+    Route::get('/getAllAboutData', 'getAllAboutData');
+    Route::get('/getSingleAboutData/{id}', 'getSingleAboutData');
+    Route::post('/createAbout', 'storeAbout');
+    Route::post('/updateAbout/{id}', 'updateAbout');
+    Route::delete('/deleteAbout/{id}', 'deleteAbout');
 });

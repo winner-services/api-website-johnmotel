@@ -1,0 +1,417 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Website John Services Motel API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/getAllAboutData": {
+            "get": {
+                "tags": [
+                    "About"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getAllAboutData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createAbout": {
+            "post": {
+                "tags": [
+                    "About"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "storeAbout",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "Hotel_name",
+                                    "title_en",
+                                    "title_fr",
+                                    "short_description_en",
+                                    "short_description_fr",
+                                    "adress_en",
+                                    "adress_fr",
+                                    "facebook",
+                                    "instagram",
+                                    "linkedin",
+                                    "twitter",
+                                    "email",
+                                    "phone",
+                                    "youtube",
+                                    "image1",
+                                    "image2"
+                                ],
+                                "properties": {
+                                    "Hotel_name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "john services motel"
+                                    },
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "short_description_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "short_description_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "adress_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "adress_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "facebook": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "instagram": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner"
+                                    },
+                                    "linkedin": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner"
+                                    },
+                                    "twitter": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
+                                    },
+                                    "youtube": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner"
+                                    },
+                                    "image1": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    },
+                                    "image2": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "mpesa"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateAbout/{id}": {
+            "put": {
+                "tags": [
+                    "About"
+                ],
+                "summary": "Update",
+                "description": "Update existing About entry",
+                "operationId": "updateAbout",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the About entry to update",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update About information",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "mission_en",
+                                    "mission_fr",
+                                    "vision_en",
+                                    "vision_fr",
+                                    "objectif_en",
+                                    "objectif_fr",
+                                    "title_en",
+                                    "title_fr",
+                                    "short_description_en",
+                                    "short_description_fr",
+                                    "adress_en",
+                                    "adress_fr",
+                                    "facebook",
+                                    "instagram",
+                                    "linkedin",
+                                    "twitter",
+                                    "email",
+                                    "phone",
+                                    "sloga_en",
+                                    "sloga_fr"
+                                ],
+                                "properties": {
+                                    "mission_en": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "mission_fr": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "vision_en": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "vision_fr": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "objectif_en": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "objectif_fr": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "title_en": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "title_fr": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "short_description_en": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "short_description_fr": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "adress_en": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "adress_fr": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "facebook": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "instagram": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "linkedin": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "twitter": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "sloga_en": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "sloga_fr": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "image1": {
+                                        "type": "string",
+                                        "format": "text"
+                                    },
+                                    "image2": {
+                                        "type": "string",
+                                        "format": "text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successfully updated"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/deleteAbout/{id}": {
+            "delete": {
+                "tags": [
+                    "About"
+                ],
+                "summary": "Delete",
+                "description": "Delete existing About entry",
+                "operationId": "deleteAbout",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the About entry to delete",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully deleted"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/getSingleAboutData/{id}": {
+            "get": {
+                "tags": [
+                    "About"
+                ],
+                "summary": "Show ABout Data",
+                "description": "Show ABout Data ",
+                "operationId": "getSingleAboutData",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "succès",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "succès"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "Bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "About",
+            "description": "About"
+        }
+    ]
+}
