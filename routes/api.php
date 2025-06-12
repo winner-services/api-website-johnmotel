@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\About\AboutController;
+use App\Http\Controllers\Gallery\GalleryController;
 use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Slide\SlideController;
 use App\Http\Controllers\Team\TeamController;
@@ -53,4 +54,13 @@ Route::controller(ServiceController::class)->group(function () {
     Route::post('createService', 'createService');
     Route::post('updateService', 'updateService');
     Route::delete('deleteService/{id}', 'deleteService');
+});
+
+Route::controller(GalleryController::class)->group(function () {
+    Route::get('/getAllGalleyData', 'getAllGalleyData');
+    Route::get('/getSixImagesGallery', 'getSixGallery');
+    Route::post('/createGallery', 'storeGallery');
+    Route::post('/updateGallery/{id}', 'updateGallery');
+    Route::delete('/deleteGallery/{id}', 'deleteGallery');
+    Route::get('/getSingleGallery/{id}', 'getSingleGallery');
 });
