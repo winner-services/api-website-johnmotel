@@ -396,6 +396,197 @@
                 ]
             }
         },
+        "/api/getFaqsData": {
+            "get": {
+                "tags": [
+                    "Faqs"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getFaqsData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createFaqs": {
+            "post": {
+                "tags": [
+                    "Faqs"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "createFaqs",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "question_en",
+                                    "question_fr",
+                                    "response_fr",
+                                    "response_en"
+                                ],
+                                "properties": {
+                                    "question_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "question_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "response_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "response_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "ysteme"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateFaqs/{id}": {
+            "put": {
+                "tags": [
+                    "Faqs"
+                ],
+                "summary": "Update",
+                "description": "Modification",
+                "operationId": "updateFaqs",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Modifier",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "question_en",
+                                    "question_fr",
+                                    "response_fr",
+                                    "response_en"
+                                ],
+                                "properties": {
+                                    "question_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "question_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "response_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "response_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "404": {
+                        "description": "faqs not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/deleteFaqs/{id}": {
+            "delete": {
+                "tags": [
+                    "Faqs"
+                ],
+                "summary": "Delete",
+                "description": "Suppression",
+                "operationId": "deleteFaqs",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Slide deleted successfully"
+                    },
+                    "404": {
+                        "description": "Slide not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/getAllGalleyData": {
             "get": {
                 "tags": [
@@ -1443,6 +1634,10 @@
         {
             "name": "About",
             "description": "About"
+        },
+        {
+            "name": "Faqs",
+            "description": "Faqs"
         },
         {
             "name": "Gallery",

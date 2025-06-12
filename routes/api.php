@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\About\AboutController;
+use App\Http\Controllers\Faqs\FaqsController;
 use App\Http\Controllers\Gallery\GalleryController;
 use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Slide\SlideController;
@@ -63,4 +64,11 @@ Route::controller(GalleryController::class)->group(function () {
     Route::post('/updateGallery/{id}', 'updateGallery');
     Route::delete('/deleteGallery/{id}', 'deleteGallery');
     Route::get('/getSingleGallery/{id}', 'getSingleGallery');
+});
+
+Route::controller(FaqsController::class)->group(function () {
+    Route::post('/createFaqs', 'createFaqs');
+    Route::put('/updateFaqs/{id}', 'updateFaqs');
+    Route::get('/getFaqsData' . 'getFaqsData');
+    Route::delete('/deleteFaqs/{id}', 'deleteFaqs');
 });
