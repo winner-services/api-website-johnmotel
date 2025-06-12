@@ -12,7 +12,7 @@ class CategoryController extends Controller
     /**
      * @OA\Get(
      *      path="/api/getCategoryData",
-     *      operationId="getFaqsData",
+     *      operationId="getCategoryData",
      *      tags={"Menu"},
      *      summary="Get",
      *      description="Returns list",
@@ -154,10 +154,10 @@ class CategoryController extends Controller
                 'errors' => $validator->errors()
             ], 422);
         }
-        $categ->designation_en = $request->designation_en;
-        $categ->designation_fr = $request->designation_fr;
-        $categ->update();
-
+        $categ->update([
+            'designation_en' => $request->designation_en,
+            'designation_fr' => $request->designation_fr
+        ]);
         return response()->json([
             'message' => 'succès.',
             'success' => true,

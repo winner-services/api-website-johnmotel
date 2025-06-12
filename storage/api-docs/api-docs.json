@@ -831,6 +831,280 @@
                 ]
             }
         },
+        "/api/getCategoryData": {
+            "get": {
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getCategoryData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createCategory": {
+            "post": {
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "createCategory",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "designation_en",
+                                    "designation_fr"
+                                ],
+                                "properties": {
+                                    "designation_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "wine"
+                                    },
+                                    "designation_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "vin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "ysteme"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateCategory/{id}": {
+            "put": {
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "Update",
+                "description": "Modification",
+                "operationId": "updateCategory",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Modifier",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "designation_en",
+                                    "designation_fr"
+                                ],
+                                "properties": {
+                                    "designation_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "wine"
+                                    },
+                                    "designation_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "vin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "404": {
+                        "description": "faqs not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/getMenuData": {
+            "get": {
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getMenuData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createMenu": {
+            "post": {
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "createMenu",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "category_id",
+                                    "designation",
+                                    "price"
+                                ],
+                                "properties": {
+                                    "designation": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "wine"
+                                    },
+                                    "category_id": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": 1
+                                    },
+                                    "price": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "ysteme"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateMenu/{id}": {
+            "put": {
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "Update",
+                "description": "Modification",
+                "operationId": "updateMenu",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Modifier",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "category_id",
+                                    "designation",
+                                    "price"
+                                ],
+                                "properties": {
+                                    "designation": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "wine"
+                                    },
+                                    "category_id": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": 1
+                                    },
+                                    "price": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "404": {
+                        "description": "menu not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/getServiceData": {
             "get": {
                 "tags": [
@@ -1642,6 +1916,10 @@
         {
             "name": "Gallery",
             "description": "Gallery"
+        },
+        {
+            "name": "Menu",
+            "description": "Menu"
         },
         {
             "name": "Service",

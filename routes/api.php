@@ -3,22 +3,15 @@
 use App\Http\Controllers\About\AboutController;
 use App\Http\Controllers\Faqs\FaqsController;
 use App\Http\Controllers\Gallery\GalleryController;
+use App\Http\Controllers\Menurestaurant\CategoryController;
+use App\Http\Controllers\Menurestaurant\MenuController;
 use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Slide\SlideController;
 use App\Http\Controllers\Team\TeamController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -71,4 +64,16 @@ Route::controller(FaqsController::class)->group(function () {
     Route::put('/updateFaqs/{id}', 'updateFaqs');
     Route::get('/getFaqsData' . 'getFaqsData');
     Route::delete('/deleteFaqs/{id}', 'deleteFaqs');
+});
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/getCategoryData', 'getCategoryData');
+    Route::post('/createCategory', 'createCategory');
+    Route::put('/updateCategory/{id}', 'updateCategory');
+});
+
+Route::controller(MenuController::class)->group(function () {
+    Route::get('/getMenuData', 'getMenuData');
+    Route::post('/createMenu', 'createMenu');
+    Route::put('/updateMenu/{id}', 'updateMenu');
 });
