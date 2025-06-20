@@ -66,7 +66,7 @@ Route::controller(GalleryController::class)->group(function () {
 Route::controller(FaqsController::class)->group(function () {
     Route::post('/createFaqs', 'createFaqs');
     Route::put('/updateFaqs/{id}', 'updateFaqs');
-    Route::get('/getFaqsData' . 'getFaqsData');
+    Route::get('/getFaqsData', 'getFaqsData');
     Route::delete('/deleteFaqs/{id}', 'deleteFaqs');
 });
 
