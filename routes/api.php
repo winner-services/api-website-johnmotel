@@ -1,10 +1,14 @@
 <?php
 
 use App\Http\Controllers\About\AboutController;
+use App\Http\Controllers\Chambre\ChambreController;
+use App\Http\Controllers\Contact\ContactController;
 use App\Http\Controllers\Faqs\FaqsController;
 use App\Http\Controllers\Gallery\GalleryController;
 use App\Http\Controllers\Menurestaurant\CategoryController;
 use App\Http\Controllers\Menurestaurant\MenuController;
+use App\Http\Controllers\Restaurant\RestaurantController;
+use App\Http\Controllers\Restaurant\SlideRestauController;
 use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Slide\SlideController;
 use App\Http\Controllers\Team\TeamController;
@@ -76,4 +80,31 @@ Route::controller(MenuController::class)->group(function () {
     Route::get('/getMenuData', 'getMenuData');
     Route::post('/createMenu', 'createMenu');
     Route::put('/updateMenu/{id}', 'updateMenu');
+});
+Route::controller(ContactController::class)->group(function () {
+    Route::get('/getAllContactData', 'getContact');
+    Route::post('/createContact', 'storeContact');
+    Route::delete('/deleteContact/{id}', 'deleteContact');
+});
+
+Route::controller(ChambreController::class)->group(function () {
+    Route::post('/createRoom', 'createChambre');
+    Route::post('/updateRoom/{id}', 'updateChambre');
+    Route::get('/getRoomsData', 'getRoomsData');
+    Route::get('/getSingleRoom/{id}', 'getSingleRoom');
+    Route::delete('/deleteRoom/{id}', 'deleteChambre');
+});
+
+Route::controller(SlideRestauController::class)->group(function () {
+    Route::post('/createSlideRestau', 'createSlideRestau');
+    Route::post('/updateSlideRestau/{id}', 'updateSlideRestau');
+    Route::delete('/deleteSlideRestau/{id}', 'deleteSlideRestau');
+    Route::get('/getAllSlideRestauData', 'getAllSlideRestauData');
+    Route::get('/getOneSildeRestau', 'getOneSildeRestau');
+});
+
+Route::controller(RestaurantController::class)->group(function () {
+    Route::post('/createRestaurant', 'createRestaurant');
+    Route::put('/updateRestaurant/{id}', 'updateRestaurant');
+    Route::get('/getRestaurantData', 'getRestaurantData');
 });
