@@ -12,6 +12,6 @@ class Faqs extends Model
         'question_en',
         'question_fr',
         'response_fr',
-        'response_fr',
+        'response_en',
     ];
 }
