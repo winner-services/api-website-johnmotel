@@ -7,6 +7,7 @@ use App\Http\Controllers\Faqs\FaqsController;
 use App\Http\Controllers\Gallery\GalleryController;
 use App\Http\Controllers\Menurestaurant\CategoryController;
 use App\Http\Controllers\Menurestaurant\MenuController;
+use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\Restaurant\RestaurantController;
 use App\Http\Controllers\Restaurant\SlideRestauController;
 use App\Http\Controllers\Service\ServiceController;
@@ -107,4 +108,10 @@ Route::controller(RestaurantController::class)->group(function () {
     Route::post('/createRestaurant', 'createRestaurant');
     Route::put('/updateRestaurant/{id}', 'updateRestaurant');
     Route::get('/getRestaurantData', 'getRestaurantData');
+});
+
+Route::controller(NewsController::class)->group(function () {
+    Route::post('/createNews', 'createNews');
+    Route::post('/updateNews/{id}', 'updateNews');
+    Route::get('/getNewsData', 'getNewsData');
 });
