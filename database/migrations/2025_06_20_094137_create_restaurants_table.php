@@ -14,8 +14,8 @@ return new class extends Migration {
             $table->id();
             $table->string('title_en');
             $table->string('title_fr');
-            $table->string('description_en');
-            $table->string('description_fr');
+            $table->text('description_en');
+            $table->text('description_fr');
             $table->timestamps();
         });
     }

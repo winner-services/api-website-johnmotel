@@ -12,10 +12,10 @@ return new class extends Migration {
     {
         Schema::create('chambres', function (Blueprint $table) {
             $table->id();
-            $table->string('designation');
+            $table->text('designation');
             $table->string('price');
-            $table->string('shot_description_fr');
-            $table->string('shot_description_en');
+            $table->text('shot_description_fr');
+            $table->text('shot_description_en');
             $table->string('image');
             $table->timestamps();
         });
