@@ -153,7 +153,7 @@ class SlideRoomsController extends Controller
      */
     public function getAllSlideRoomData()
     {
-        $images = SlideRooms::inRandomOrder()->pluck('image')->toArray();
+        $images = SlideRooms::inRandomOrder()->get();
 
         $result = [
             'message' => "success",
