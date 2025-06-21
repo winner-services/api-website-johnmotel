@@ -153,17 +153,30 @@ class SlideRestauController extends Controller
      */
     public function getAllSlideRestauData()
     {
-        $images = Slide_Restau::inRandomOrder()->pluck('image')->toArray();
+        $slides = Slide_Restau::inRandomOrder()->get();
 
         $result = [
             'message' => "success",
             'success' => true,
             'status' => 200,
-            'data' => $images
+            'data' => $slides
         ];
 
         return response()->json($result);
     }
+    // public function getAllSlideRestauData()
+    // {
+    //     $images = Slide_Restau::inRandomOrder()->pluck('image')->toArray();
+
+    //     $result = [
+    //         'message' => "success",
+    //         'success' => true,
+    //         'status' => 200,
+    //         'data' => $images
+    //     ];
+
+    //     return response()->json($result);
+    // }
     /**
      * @OA\Get(
      *      path="/api/getOneSildeRestau",
