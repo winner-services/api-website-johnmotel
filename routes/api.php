@@ -9,11 +9,13 @@ use App\Http\Controllers\Gallery\GalleryController;
 use App\Http\Controllers\Menurestaurant\CategoryController;
 use App\Http\Controllers\Menurestaurant\MenuController;
 use App\Http\Controllers\News\NewsController;
+use App\Http\Controllers\Partenaire\PartenaireController;
 use App\Http\Controllers\Restaurant\RestaurantController;
 use App\Http\Controllers\Restaurant\SlideRestauController;
 use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Slide\SlideController;
 use App\Http\Controllers\Team\TeamController;
+use App\Http\Controllers\Temoignage\TemoignageController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -129,4 +131,18 @@ Route::controller(NewsController::class)->group(function () {
     Route::post('/createNews', 'createNews');
     Route::post('/updateNews/{id}', 'updateNews');
     Route::get('/getNewsData', 'getNewsData');
+});
+
+Route::controller(TemoignageController::class)->group(function () {
+    Route::get('/getAllTemoignage', 'getTemoignage');
+    Route::post('/createTemoignage', 'storeTemoignage');
+    Route::post('/updateTemoignage/{id}', 'updateTemoignage');
+    Route::delete('/deleteTemoignage/{id}', 'deleteTemoignage');
+});
+
+Route::controller(PartenaireController::class)->group(function () {
+    Route::get('/getAllPartenaire', 'getPartenaire');
+    Route::post('/createPartenaire', 'storePartenaire');
+    Route::post('/updatePartenaire/{id}', 'updatePartenaire');
+    Route::delete('/deletePartenaire/{id}', 'deletePartenaire');
 });
