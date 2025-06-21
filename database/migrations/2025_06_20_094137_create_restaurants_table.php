@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('title_fr');
             $table->text('description_en');
             $table->text('description_fr');
+            $table->text('horaire');
             $table->timestamps();
         });
     }

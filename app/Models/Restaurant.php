@@ -12,6 +12,7 @@ class Restaurant extends Model
         'title_en',
         'title_fr',
         'description_en',
-        'description_fr'
+        'description_fr',
+        'horaire'
     ];
 }

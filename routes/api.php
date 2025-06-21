@@ -127,6 +127,7 @@ Route::controller(RestaurantController::class)->group(function () {
     Route::post('/createRestaurant', 'createRestaurant');
     Route::put('/updateRestaurant/{id}', 'updateRestaurant');
     Route::get('/getRestaurantData', 'getRestaurantData');
+    Route::get('/getMenuRestauByCategory/{id}', 'getMenuRestauByCategory');
 });
 
 Route::controller(NewsController::class)->group(function () {

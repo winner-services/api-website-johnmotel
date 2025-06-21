@@ -183,12 +183,7 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "mission_en",
-                                    "mission_fr",
-                                    "vision_en",
-                                    "vision_fr",
-                                    "objectif_en",
-                                    "objectif_fr",
+                                    "Hotel_name",
                                     "title_en",
                                     "title_fr",
                                     "short_description_en",
@@ -201,97 +196,90 @@
                                     "twitter",
                                     "email",
                                     "phone",
-                                    "sloga_en",
-                                    "sloga_fr"
+                                    "youtube",
+                                    "image1",
+                                    "image2"
                                 ],
                                 "properties": {
-                                    "mission_en": {
+                                    "Hotel_name": {
                                         "type": "string",
-                                        "format": "text"
-                                    },
-                                    "mission_fr": {
-                                        "type": "string",
-                                        "format": "text"
-                                    },
-                                    "vision_en": {
-                                        "type": "string",
-                                        "format": "text"
-                                    },
-                                    "vision_fr": {
-                                        "type": "string",
-                                        "format": "text"
-                                    },
-                                    "objectif_en": {
-                                        "type": "string",
-                                        "format": "text"
-                                    },
-                                    "objectif_fr": {
-                                        "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "john services motel"
                                     },
                                     "title_en": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "mpesa"
                                     },
                                     "title_fr": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
                                     },
                                     "short_description_en": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "winner kambale"
                                     },
                                     "short_description_fr": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "rdc"
                                     },
                                     "adress_en": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "mpesa"
                                     },
                                     "adress_fr": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
                                     },
                                     "facebook": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "winner kambale"
                                     },
                                     "instagram": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "winner"
                                     },
                                     "linkedin": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "winner"
                                     },
                                     "twitter": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
                                     },
                                     "email": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "mpesa"
                                     },
                                     "phone": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "winner@gmail.com"
                                     },
-                                    "sloga_en": {
+                                    "youtube": {
                                         "type": "string",
-                                        "format": "text"
-                                    },
-                                    "sloga_fr": {
-                                        "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "winner"
                                     },
                                     "image1": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "mpesa"
                                     },
                                     "image2": {
                                         "type": "string",
-                                        "format": "text"
+                                        "format": "text",
+                                        "example": "mpesa"
                                     }
                                 },
                                 "type": "object"
@@ -1611,6 +1599,24 @@
                 }
             }
         },
+        "/api/getMenuRestauByCategory/{id}": {
+            "get": {
+                "tags": [
+                    "Menu"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getMenuRestauByCategory",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
         "/api/createMenu": {
             "post": {
                 "tags": [
@@ -2127,7 +2133,8 @@
                                     "title_en",
                                     "title_fr",
                                     "description_en",
-                                    "description_fr"
+                                    "description_fr",
+                                    "horaire"
                                 ],
                                 "properties": {
                                     "title_en": {
@@ -2149,6 +2156,11 @@
                                         "type": "string",
                                         "format": "text",
                                         "example": "rdc"
+                                    },
+                                    "horaire": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "08h00-22h00"
                                     }
                                 },
                                 "type": "object"
@@ -2198,29 +2210,35 @@
                                 "required": [
                                     "title_en",
                                     "title_fr",
+                                    "description_en",
                                     "description_fr",
-                                    "description_en"
+                                    "horaire"
                                 ],
                                 "properties": {
-                                    "description_fr": {
-                                        "type": "string",
-                                        "format": "text",
-                                        "example": "winner services"
-                                    },
-                                    "description_en": {
-                                        "type": "string",
-                                        "format": "text",
-                                        "example": "winner services"
-                                    },
                                     "title_en": {
                                         "type": "string",
                                         "format": "text",
-                                        "example": "winner kambale"
+                                        "example": "rdc"
                                     },
                                     "title_fr": {
                                         "type": "string",
                                         "format": "text",
                                         "example": "rdc"
+                                    },
+                                    "description_fr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "winner kambale"
+                                    },
+                                    "description_en": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    },
+                                    "horaire": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "08h00-22h00"
                                     }
                                 },
                                 "type": "object"
