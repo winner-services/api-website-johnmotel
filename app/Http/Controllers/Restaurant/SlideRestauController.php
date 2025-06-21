@@ -17,7 +17,7 @@ class SlideRestauController extends Controller
      * description="Creation",
      * security={{ "bearerAuth":{ }}},
      * operationId="createSlideRestau",
-     * tags={"Restaurant"},
+     * tags={"Slide Restaurant"},
      * @OA\RequestBody(
      *    required=true,
      *    description="Enregistrer",
@@ -67,7 +67,7 @@ class SlideRestauController extends Controller
      * description="Modification",
      * security={{ "bearerAuth":{ }}},
      * operationId="updateSlideRestau",
-     * tags={"Restaurant"},
+     * tags={"Slide Restaurant"},
      * @OA\Parameter(
      *    name="id",
      *    in="path",
@@ -139,7 +139,7 @@ class SlideRestauController extends Controller
      * @OA\Get(
      *      path="/api/getAllSlideRestauData",
      *      operationId="getAllSlideRestauData",
-     *      tags={"Restaurant"},
+     *      tags={"Slide Restaurant"},
      *      summary="Get",
      *      description="Returns list",
      *      @OA\Response(
@@ -168,7 +168,7 @@ class SlideRestauController extends Controller
      * @OA\Get(
      *      path="/api/getOneSildeRestau",
      *      operationId="getOneSildeRestau",
-     *      tags={"Restaurant"},
+     *      tags={"Slide Restaurant"},
      *      summary="Get",
      *      description="Returns list",
      *      @OA\Response(
@@ -199,7 +199,7 @@ class SlideRestauController extends Controller
      * description="Suppression",
      * security={{ "bearerAuth":{ }}},
      * operationId="deleteSlideRestau",
-     * tags={"Restaurant"},
+     * tags={"Slide Restaurant"},
      * @OA\Parameter(
      *    name="id",
      *    in="path",

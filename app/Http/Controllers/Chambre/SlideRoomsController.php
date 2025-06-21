@@ -17,7 +17,7 @@ class SlideRoomsController extends Controller
      * description="Creation",
      * security={{ "bearerAuth":{ }}},
      * operationId="createSlideRoom",
-     * tags={"Chambres"},
+     * tags={"Slide Chambre"},
      * @OA\RequestBody(
      *    required=true,
      *    description="Enregistrer",
@@ -67,7 +67,7 @@ class SlideRoomsController extends Controller
      * description="Modification",
      * security={{ "bearerAuth":{ }}},
      * operationId="updateSlideRoom",
-     * tags={"Chambres"},
+     * tags={"Slide Chambre"},
      * @OA\Parameter(
      *    name="id",
      *    in="path",
@@ -139,7 +139,7 @@ class SlideRoomsController extends Controller
      * @OA\Get(
      *      path="/api/getAllSlideRoomData",
      *      operationId="getAllSlideRoomData",
-     *      tags={"Chambres"},
+     *      tags={"Slide Chambre"},
      *      summary="Get",
      *      description="Returns list",
      *      @OA\Response(
@@ -168,7 +168,7 @@ class SlideRoomsController extends Controller
      * @OA\Get(
      *      path="/api/getOneSildeRoom",
      *      operationId="getOneSildeRoom",
-     *      tags={"Chambres"},
+     *      tags={"Slide Chambre"},
      *      summary="Get",
      *      description="Returns list",
      *      @OA\Response(
@@ -198,7 +198,7 @@ class SlideRoomsController extends Controller
      * description="Suppression",
      * security={{ "bearerAuth":{ }}},
      * operationId="deleteSlideRoom",
-     * tags={"Chambres"},
+     * tags={"Slide Chambre"},
      * @OA\Parameter(
      *    name="id",
      *    in="path",

@@ -735,7 +735,7 @@
         "/api/createSlideRoom": {
             "post": {
                 "tags": [
-                    "Chambres"
+                    "Slide Chambre"
                 ],
                 "summary": "Create",
                 "description": "Creation",
@@ -779,7 +779,7 @@
         "/api/updateSlideRoom/{id}": {
             "post": {
                 "tags": [
-                    "Chambres"
+                    "Slide Chambre"
                 ],
                 "summary": "Update",
                 "description": "Modification",
@@ -836,7 +836,7 @@
         "/api/getAllSlideRoomData": {
             "get": {
                 "tags": [
-                    "Chambres"
+                    "Slide Chambre"
                 ],
                 "summary": "Get",
                 "description": "Returns list",
@@ -854,7 +854,7 @@
         "/api/getOneSildeRoom": {
             "get": {
                 "tags": [
-                    "Chambres"
+                    "Slide Chambre"
                 ],
                 "summary": "Get",
                 "description": "Returns list",
@@ -872,7 +872,7 @@
         "/api/deleteSlideRoom/{id}": {
             "delete": {
                 "tags": [
-                    "Chambres"
+                    "Slide Chambre"
                 ],
                 "summary": "Delete",
                 "description": "Suppression",
@@ -2249,7 +2249,7 @@
         "/api/createSlideRestau": {
             "post": {
                 "tags": [
-                    "Restaurant"
+                    "Slide Restaurant"
                 ],
                 "summary": "Create",
                 "description": "Creation",
@@ -2293,7 +2293,7 @@
         "/api/updateSlideRestau/{id}": {
             "post": {
                 "tags": [
-                    "Restaurant"
+                    "Slide Restaurant"
                 ],
                 "summary": "Update",
                 "description": "Modification",
@@ -2350,7 +2350,7 @@
         "/api/getAllSlideRestauData": {
             "get": {
                 "tags": [
-                    "Restaurant"
+                    "Slide Restaurant"
                 ],
                 "summary": "Get",
                 "description": "Returns list",
@@ -2368,7 +2368,7 @@
         "/api/getOneSildeRestau": {
             "get": {
                 "tags": [
-                    "Restaurant"
+                    "Slide Restaurant"
                 ],
                 "summary": "Get",
                 "description": "Returns list",
@@ -2386,7 +2386,7 @@
         "/api/deleteSlideRestau/{id}": {
             "delete": {
                 "tags": [
-                    "Restaurant"
+                    "Slide Restaurant"
                 ],
                 "summary": "Delete",
                 "description": "Suppression",
@@ -3839,6 +3839,10 @@
             "description": "Chambres"
         },
         {
+            "name": "Slide Chambre",
+            "description": "Slide Chambre"
+        },
+        {
             "name": "Contact",
             "description": "Contact"
         },
@@ -3865,6 +3869,10 @@
         {
             "name": "Restaurant",
             "description": "Restaurant"
+        },
+        {
+            "name": "Slide Restaurant",
+            "description": "Slide Restaurant"
         },
         {
             "name": "Autres Service",
