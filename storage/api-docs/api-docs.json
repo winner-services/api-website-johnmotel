@@ -732,6 +732,179 @@
                 ]
             }
         },
+        "/api/createSlideRoom": {
+            "post": {
+                "tags": [
+                    "Chambres"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "createSlideRoom",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "image"
+                                ],
+                                "properties": {
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "imagerdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "ysteme"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateSlideRoom/{id}": {
+            "post": {
+                "tags": [
+                    "Chambres"
+                ],
+                "summary": "Update",
+                "description": "Modification",
+                "operationId": "updateSlideRoom",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Modifier",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "image"
+                                ],
+                                "properties": {
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "404": {
+                        "description": "Slide not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/getAllSlideRoomData": {
+            "get": {
+                "tags": [
+                    "Chambres"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getAllSlideRoomData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getOneSildeRoom": {
+            "get": {
+                "tags": [
+                    "Chambres"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getOneSildeRoom",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/deleteSlideRoom/{id}": {
+            "delete": {
+                "tags": [
+                    "Chambres"
+                ],
+                "summary": "Delete",
+                "description": "Suppression",
+                "operationId": "deleteSlideRoom",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Slide deleted successfully"
+                    },
+                    "404": {
+                        "description": "Slide not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/getAllContactData": {
             "get": {
                 "tags": [
