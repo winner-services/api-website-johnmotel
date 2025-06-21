@@ -15,6 +15,7 @@ use App\Http\Controllers\Restaurant\RestaurantController;
 use App\Http\Controllers\Restaurant\SlideRestauController;
 use App\Http\Controllers\Service\OtherServiceController;
 use App\Http\Controllers\Service\ServiceController;
+use App\Http\Controllers\Service\SlideOtheServiceController;
 use App\Http\Controllers\Slide\SlideController;
 use App\Http\Controllers\Team\TeamController;
 use App\Http\Controllers\Temoignage\TemoignageController;
@@ -166,7 +167,7 @@ Route::controller(OtherServiceController::class)->group(function () {
     Route::delete('deleteOtheService/{id}', 'deleteOtheService');
 });
 
-Route::controller(SlideRoomsController::class)->group(function () {
+Route::controller(SlideOtheServiceController::class)->group(function () {
     Route::post('/createSlideService', 'createSlideService');
     Route::post('/updateSlideService/{id}', 'updateSlideService');
     Route::delete('/deleteSlideService/{id}', 'deleteSlideService');
