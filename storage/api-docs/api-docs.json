@@ -2887,6 +2887,179 @@
                 ]
             }
         },
+        "/api/createSlideService": {
+            "post": {
+                "tags": [
+                    "Slide autres service"
+                ],
+                "summary": "Create",
+                "description": "Creation",
+                "operationId": "createSlideService",
+                "requestBody": {
+                    "description": "Enregistrer",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "image"
+                                ],
+                                "properties": {
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "imagerdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "success"
+                    },
+                    "401": {
+                        "description": "ysteme"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/updateSlideService/{id}": {
+            "post": {
+                "tags": [
+                    "Slide autres service"
+                ],
+                "summary": "Update",
+                "description": "Modification",
+                "operationId": "updateSlideService",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Modifier",
+                    "required": false,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "image"
+                                ],
+                                "properties": {
+                                    "image": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "rdc"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "404": {
+                        "description": "Slide not found"
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/getAllSlideServiceData": {
+            "get": {
+                "tags": [
+                    "Slide autres service"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getAllSlideServiceData",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getOneSildeService": {
+            "get": {
+                "tags": [
+                    "Slide autres service"
+                ],
+                "summary": "Get",
+                "description": "Returns list",
+                "operationId": "getOneSildeService",
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/deleteSlideService/{id}": {
+            "delete": {
+                "tags": [
+                    "Slide autres service"
+                ],
+                "summary": "Delete",
+                "description": "Suppression",
+                "operationId": "deleteSlideService",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Slide deleted successfully"
+                    },
+                    "404": {
+                        "description": "Slide not found"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/api/getAllSlideData": {
             "get": {
                 "tags": [
@@ -3899,6 +4072,10 @@
         {
             "name": "Service",
             "description": "Service"
+        },
+        {
+            "name": "Slide autres service",
+            "description": "Slide autres service"
         },
         {
             "name": "Slide",

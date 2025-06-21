@@ -166,3 +166,11 @@ Route::controller(OtherServiceController::class)->group(function () {
     Route::delete('deleteOtheService/{id}', 'deleteOtheService');
 });
 
+Route::controller(SlideRoomsController::class)->group(function () {
+    Route::post('/createSlideService', 'createSlideService');
+    Route::post('/updateSlideService/{id}', 'updateSlideService');
+    Route::delete('/deleteSlideService/{id}', 'deleteSlideService');
+    Route::get('/getAllSlideServiceData', 'getAllSlideServiceData');
+    Route::get('/getOneSildeService', 'getOneSildeService');
+});
+

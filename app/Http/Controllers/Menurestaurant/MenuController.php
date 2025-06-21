@@ -70,20 +70,6 @@ class MenuController extends Controller
         return response()->json($result);
     }
 
-    // public function getMenuRestauByCategory($id)
-    // {
-
-    //     $data = MenuRestau::join('categories', 'categories.id', '=', 'menu_restaus.category_id')
-    //         ->where('category_id', $id)
-    //         ->select('menu_restaus.*', 'categories.designation_en', 'categories.designation_fr')->get();
-    //     $result = [
-    //         'message' => 'success',
-    //         'success' => true,
-    //         'status' => 201,
-    //         'data' => $data
-    //     ];
-    //     return response()->json($result);
-    // }
     /**
      * @OA\Post(
      * path="/api/createMenu",
