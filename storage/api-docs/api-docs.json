@@ -1599,7 +1599,7 @@
                 }
             }
         },
-        "/api/getMenuRestauByCategory/{id}": {
+        "/api/getMenuRestauByCategory/{id?}": {
             "get": {
                 "tags": [
                     "Menu"

@@ -100,6 +100,7 @@ Route::controller(MenuController::class)->group(function () {
     Route::get('/getMenuData', 'getMenuData');
     Route::post('/createMenu', 'createMenu');
     Route::put('/updateMenu/{id}', 'updateMenu');
+    Route::get('/getMenuRestauByCategory/{id?}', 'getMenuRestauByCategory');
 });
 Route::controller(ContactController::class)->group(function () {
     Route::get('/getAllContactData', 'getContact');
