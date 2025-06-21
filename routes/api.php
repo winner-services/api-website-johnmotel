@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\About\AboutController;
+use App\Http\Controllers\Autenticate\AutenticateController;
 use App\Http\Controllers\Chambre\ChambreController;
 use App\Http\Controllers\Contact\ContactController;
 use App\Http\Controllers\Faqs\FaqsController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Restaurant\SlideRestauController;
 use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Slide\SlideController;
 use App\Http\Controllers\Team\TeamController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +24,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::controller(UserController::class)->group(function () {
+    Route::post('/createUSer', 'storeUser');
+    Route::put('/updateUser/{id}', 'updateUser');
+    Route::delete('/deleteUser/{id}', 'deleteUser');
+    Route::get('/getAllUser', 'getUsers');
+});
+
+Route::prefix('auth')->group(function () {
+    Route::post('/login', [AutenticateController::class, 'login']);
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::get('/logout', [AutenticateController::class, 'logout']);
+    });
+});
 
 Route::controller(AboutController::class)->group(function () {
     Route::get('/getAllAboutData', 'getAllAboutData');
