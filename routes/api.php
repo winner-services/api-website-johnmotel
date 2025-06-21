@@ -13,6 +13,7 @@ use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\Partenaire\PartenaireController;
 use App\Http\Controllers\Restaurant\RestaurantController;
 use App\Http\Controllers\Restaurant\SlideRestauController;
+use App\Http\Controllers\Service\OtherServiceController;
 use App\Http\Controllers\Service\ServiceController;
 use App\Http\Controllers\Slide\SlideController;
 use App\Http\Controllers\Team\TeamController;
@@ -154,5 +155,12 @@ Route::controller(SlideRoomsController::class)->group(function () {
     Route::delete('/deleteSlideRoom/{id}', 'deleteSlideRoom');
     Route::get('/getAllSlideRoomData', 'getAllSlideRoomData');
     Route::get('/getOneSildeRoom', 'getOneSildeRoom');
+});
+
+Route::controller(OtherServiceController::class)->group(function () {
+    Route::get('getOtherServicesData', 'getOtherServicesData');
+    Route::post('createOtherService', 'createOtherService');
+    Route::post('updateOtherService', 'updateOtherService');
+    Route::delete('deleteOtheService/{id}', 'deleteOtheService');
 });
 
