@@ -3,6 +3,7 @@
 use App\Http\Controllers\About\AboutController;
 use App\Http\Controllers\Autenticate\AutenticateController;
 use App\Http\Controllers\Chambre\ChambreController;
+use App\Http\Controllers\Chambre\SlideRoomsController;
 use App\Http\Controllers\Contact\ContactController;
 use App\Http\Controllers\Faqs\FaqsController;
 use App\Http\Controllers\Gallery\GalleryController;
@@ -146,3 +147,12 @@ Route::controller(PartenaireController::class)->group(function () {
     Route::post('/updatePartenaire/{id}', 'updatePartenaire');
     Route::delete('/deletePartenaire/{id}', 'deletePartenaire');
 });
+
+Route::controller(SlideRoomsController::class)->group(function () {
+    Route::post('/createSlideRoom', 'createSlideRoom');
+    Route::post('/updateSlideRoom/{id}', 'updateSlideRoom');
+    Route::delete('/deleteSlideRoom/{id}', 'deleteSlideRoom');
+    Route::get('/getAllSlideRoomData', 'getAllSlideRoomData');
+    Route::get('/getOneSildeRoom', 'getOneSildeRoom');
+});
+
