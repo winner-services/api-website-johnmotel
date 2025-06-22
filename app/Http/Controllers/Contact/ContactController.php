@@ -50,11 +50,10 @@ class ContactController extends Controller
      *    required=true,
      *    description="Enregistrer",
      *    @OA\JsonContent(
-     *       required={"name","address","message","email","phone"},
+     *       required={"name","subject","message","email","phone"},
      *       @OA\Property(property="name", type="string", format="text",example="winner kambale"),
-     *       @OA\Property(property="address", type="string", format="text",example="rdc"),
+     *       @OA\Property(property="subject", type="string", format="text",example="rdc"),
      *       @OA\Property(property="message", type="string", format="text",example="mpesa"),
-     *       @OA\Property(property="phone", type="string", format="text",example="0997604471"),
      *       @OA\Property(property="email", type="string", format="text", example="winner@gmail.com")
      *    ),
      * ),
@@ -72,10 +71,9 @@ class ContactController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'address' => 'required',
+            'subject' => 'required',
             'email' => 'required|email',
-            'message' => 'required',
-            'phone' => 'required'
+            'message' => 'required'
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -85,10 +83,9 @@ class ContactController extends Controller
         }
         Contact::create([
             'name' => $request->name,
-            'address' => $request->address,
+            'subject' => $request->subject,
             'email' => $request->email,
-            'message' => $request->message,
-            'phone' => $request->phone
+            'message' => $request->message
         ]);
         $result = [
             'message' => "success",
