@@ -191,4 +191,48 @@ class NewsController extends Controller
         ];
         return response()->json($result);
     }
+
+    /**
+     * @OA\Get(
+     *     path="/api/getEventsById/{id}",
+     *     summary="Afficher",
+     *     description="Afficher ",
+     *     security={{"bearerAuth":{}}},
+     *     operationId="getEventsById",
+     *     tags={"News"},
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         required=true,
+     *         description="ID de l'approv",
+     *         @OA\Schema(
+     *             type="integer"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="succès",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="string", example="success"),
+     *             @OA\Property(property="message", type="string", example="succès")
+     *         ),
+     * @OA\Response(
+     *    response=401,
+     *    description="le systeme",
+     *     )
+     *     ),
+     *     )
+     * )
+     */
+    public function getEventsById($id)
+    {
+        $data = News::find($id);
+        $result = [
+            'message' => "success",
+            'success' => true,
+            'status' => 200,
+            'data' => $data
+        ];
+        return response()->json($result);
+    }
 }
