@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->text('title_fr');
             $table->text('short_description_en');
             $table->text('short_description_fr');
-            $table->text('adress_en');
             $table->text('adress_fr');
             $table->text('facebook')->nullable();
             $table->text('instagram')->nullable();

@@ -12,7 +12,6 @@ class About extends Model
         'Hotel_name',
         'title_en',
         'title_fr',
-        'adress_en',
         'adress_fr',
         'facebook',
         'instagram',

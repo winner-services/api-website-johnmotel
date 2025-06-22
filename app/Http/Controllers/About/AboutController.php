@@ -50,13 +50,12 @@ class AboutController extends Controller
      *    required=true,
      *    description="Enregistrer",
      *    @OA\JsonContent(
-     *       required={"Hotel_name","title_en","title_fr","short_description_en","short_description_fr","adress_en","adress_fr","facebook","instagram","linkedin","twitter","email","phone","youtube","image1","image2"},
+     *       required={"Hotel_name","title_en","title_fr","short_description_en","short_description_fr","adress_fr","facebook","instagram","linkedin","twitter","email","phone","youtube","image1","image2"},
      *       @OA\Property(property="Hotel_name", type="string", format="text",example="john services motel"),
      *       @OA\Property(property="title_en", type="string", format="text",example="mpesa"),
      *       @OA\Property(property="title_fr", type="string", format="text", example="winner@gmail.com"),
      *       @OA\Property(property="short_description_en", type="string", format="text",example="winner kambale"),
      *       @OA\Property(property="short_description_fr", type="string", format="text",example="rdc"),
-     *       @OA\Property(property="adress_en", type="string", format="text",example="mpesa"),
      *       @OA\Property(property="adress_fr", type="string", format="text", example="winner@gmail.com"),
      *       @OA\Property(property="facebook", type="string", format="text",example="winner kambale"),
      *       @OA\Property(property="instagram", type="string", format="text",example="winner"),
@@ -87,7 +86,6 @@ class AboutController extends Controller
             'title_fr' => 'required',
             'short_description_en' => 'required',
             'short_description_fr' => 'required',
-            'adress_en' => 'required',
             'adress_fr' => 'required',
             'facebook' => 'nullable',
             'instagram' => 'nullable',
@@ -116,8 +114,7 @@ class AboutController extends Controller
             'title_fr' => $request->title_fr,
             'short_description_en' => $request->short_description_en,
             'short_description_fr' => $request->short_description_fr,
-            'adress_en' => $request->title_en,
-            'adress_fr' => $request->title_fr,
+            'adress_fr' => $request->adress_fr,
             'facebook' => $request->facebook,
             'instagram' => $request->instagram,
             'twitter' => $request->twitter,
@@ -155,13 +152,12 @@ class AboutController extends Controller
      *    required=true,
      *    description="Update About information",
      *    @OA\JsonContent(
-     *       required={"Hotel_name","title_en","title_fr","short_description_en","short_description_fr","adress_en","adress_fr","facebook","instagram","linkedin","twitter","email","phone","youtube","image1","image2"},
+     *       required={"Hotel_name","title_en","title_fr","short_description_en","short_description_fr","adress_fr","facebook","instagram","linkedin","twitter","email","phone","youtube","image1","image2"},
      *       @OA\Property(property="Hotel_name", type="string", format="text",example="john services motel"),
      *       @OA\Property(property="title_en", type="string", format="text",example="mpesa"),
      *       @OA\Property(property="title_fr", type="string", format="text", example="winner@gmail.com"),
      *       @OA\Property(property="short_description_en", type="string", format="text",example="winner kambale"),
      *       @OA\Property(property="short_description_fr", type="string", format="text",example="rdc"),
-     *       @OA\Property(property="adress_en", type="string", format="text",example="mpesa"),
      *       @OA\Property(property="adress_fr", type="string", format="text", example="winner@gmail.com"),
      *       @OA\Property(property="facebook", type="string", format="text",example="winner kambale"),
      *       @OA\Property(property="instagram", type="string", format="text",example="winner"),
@@ -197,7 +193,6 @@ class AboutController extends Controller
             'title_fr' => 'required',
             'short_description_en' => 'required',
             'short_description_fr' => 'required',
-            'adress_en' => 'required',
             'adress_fr' => 'required',
             'facebook' => 'nullable',
             'instagram' => 'nullable',
@@ -221,7 +216,6 @@ class AboutController extends Controller
         $about->title_fr = $request->title_fr;
         $about->short_description_en = $request->short_description_en;
         $about->short_description_fr = $request->short_description_fr;
-        $about->adress_en = $request->adress_en;
         $about->adress_fr = $request->adress_fr;
         $about->facebook = $request->facebook;
         $about->instagram = $request->instagram;
